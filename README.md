@@ -4,4 +4,4 @@
 
 <img src="https://assets-cdn.github.com/images/icons/emoji/unicode/2618.png" width="20" height="20"> sort，sort-improved：八大排序算法实现
 
-<img src="https://assets-cdn.github.com/images/icons/emoji/unicode/2728.png" width="20" height="20">unionfind：并交集
+<img src="https://assets-cdn.github.com/images/icons/emoji/unicode/2728.png" width="20" height="20">unionfind：并查集
