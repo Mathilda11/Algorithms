@@ -26,7 +26,7 @@ public class Solution {
 	}
 
 	private void dfs(boolean[][] marked, int r, int c) {
-	    if (r < 0 || r >= rows || c < 0 || c >= cols || marked[r][c]) //为真，说明该格子已达到过，不算。
+	    if (r < 0 || r >= rows || c < 0 || c >= cols || marked[r][c]) //marked[r][c]为真，说明该格子已达到过，不算。
 	        return;
 	    marked[r][c] = true;
 	    if (this.digitSum[r][c] > this.threshold)
@@ -35,7 +35,8 @@ public class Solution {
 	    for (int[] n : next)
 	        dfs(marked, r + n[0], c + n[1]);
 	}
-
+	
+	//数字的数位之和
 	private void initDigitSum() {
 	    int[] digitSumOne = new int[Math.max(rows, cols)];
 	    for (int i = 0; i < digitSumOne.length; i++) {
