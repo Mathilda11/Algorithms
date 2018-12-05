@@ -5,13 +5,13 @@ package test35;
  *
  */
 import test05.TreeNode;
-
+//# b表示空节点
 public class Solution {
 	private String deserializeStr; //全局变量
 	
 	//2 1 3
 	public String Serialize(TreeNode root) {
-	    if (root == null)
+	    if (root == null)//遇到空节点才返回
 	        return "#";
 	    return root.val + " " + Serialize(root.left) + " " + Serialize(root.right); //2 1 # # 3 # #
 	}
@@ -38,7 +38,7 @@ public class Solution {
 	    if (deserializeStr.length() == 0)
 	        return null;
 	    int index = deserializeStr.indexOf(" ");
-	    String node = index == -1 ? deserializeStr : deserializeStr.substring(0, index);
+	    String node = index == -1 ? deserializeStr : deserializeStr.substring(0, index); //取出一个节点
 	    deserializeStr = index == -1 ? "" : deserializeStr.substring(index + 1);
 	    if (node.equals("#"))
 	        return null;
