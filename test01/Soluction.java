@@ -6,17 +6,20 @@ import java.util.List;
  * 1.在一个长度为 n 的数组里的所有数字都在 0 到 n-1 的范围内。
  * 数组中某些数字是重复的，但不知道有几个数字是重复的，也不知道每个数字重复几次。请找出数组中任意一个重复的数字。
  * 
- * 2.在一个长度为 n 的数组里的所有数字都在 0 到 n-1 的范围内。
+ * 2.在一个长度为n+1的数组里的所有数字都在1到n的范围内。
+ * 所以数组中至少有一个数字是重复的。请找出数组中任意一个重复的数字，但是不能修改输入的数组。
+ * 
+ * 3.在一个长度为 n 的数组里的所有数字都在 0 到 n-1 的范围内。
  * 数组中某些数字是重复的，但不知道有几个数字是重复的，也不知道每个数字重复几次。请找出数组中所有重复的数字。
  * 
- * 3.在一个长度为 n+1 的数组里的所有数字都在 1 到 n 的范围内。
- * 数组中至少有一个数字是重复的，在不修改数组的情况下，找出数组中重复的数字。
+ * 4.在一个长度为 n+1 的数组里的所有数字都在 1 到 n 的范围内。
+ * 数组中至少有一个数字是重复的，在不修改数组的情况下，找出数组中所有重复的数字。
  * @author 54060
  * 
  *
  */
 public class Soluction {
-	//1.此方法是找出数组中任意一个重复的数字
+	//1.此方法是找出数组中任意一个重复的数字。时间复杂度O(n)，空间复杂度O(1)。
     public  boolean duplicate(int numbers[],int length,int [] duplication) {
         if(numbers==null || numbers.length==0){
             return false;
@@ -40,7 +43,81 @@ public class Soluction {
         numbers[j] = temp;
     }
     
-    //2.此方法是找出所有重复的数字
+    //2.此方法是找出数组中任意一个重复的数字。时间复杂度O(n)，空间复杂度O(n)。
+    public static int getDuplication(int[] numbers) { 
+    	if (numbers == null || numbers.length == 0) { 
+    		return -1; 
+    	} 
+    	
+    	for (int i = 0; i < numbers.length; i++) { 
+    		if (numbers[i] < 1 || numbers[i] >= numbers.length) { 
+    			return -1; 
+    		} 
+    	} 
+    	
+    	int[] nums = new int[numbers.length]; 
+    	
+    	for (int i = 0; i < numbers.length; i++) { 
+    		if (numbers[i] == nums[numbers[i]]) { 
+    			return numbers[i]; 
+    		} 
+    		nums[numbers[i]] = numbers[i]; 
+    	} 
+    	return -1;
+    	
+    } 
+    
+    //2.此方法是找出数组中任意一个重复的数字。时间复杂度O(n)，空间复杂度O(1)。
+/*  把从1~n的数字从中间的数字m分为两部分，前面一半为1~m，后面一半为m+1~n。
+          如果1~m的数字的数目等于m，则不能直接判断这一半区间是否包含重复的数字，反之，如果大于m，那么这一半的区间一定包含重复的数字；
+          如果小于m，另一半m+1~n的区间里一定包含重复的数字。
+          接下来，我们可以继续把包含重复的数字的区间一分为二，直到找到一个重复的数字。*/
+    public static int getDuplication2(int[] numbers) { 
+    	if (numbers == null || numbers.length == 0) { 
+    		return -1; 
+    	} 
+    	
+    	for (int i = 0; i < numbers.length; i++) { 
+    		if (numbers[i] < 1 || numbers[i] >= numbers.length) { 
+    			return -1; 
+    		} 
+    	} 
+    	
+    	int start = 1; 
+    	int end = numbers.length - 1; 
+    	int mid = 0; 
+    	int count = 0; 
+    	
+    	while (start <= end) { 
+    		if (start == end) { 
+	    		count = countRange(numbers, start, end); 
+	    		if (count > 1) { 
+	    			return start; 
+	    		} else { 
+	    			break; 
+	    		} 
+    		} 
+	    	mid = start + (end - start) / 2; 
+	    	count = countRange(numbers, start, mid); 
+	    	if (count > mid - start + 1) { 
+	    		end = mid; 
+	    	} else { 
+	    		start = mid + 1; 
+	    	} 
+    	} 
+    	return -1; 
+    } 
+    public static int countRange(int[] numbers, int start, int end) { 
+    	int count = 0; 
+    	for (int i = 0; i < numbers.length; i++) { 
+    		if (numbers[i] >= start && numbers[i] <= end) { 
+    			count++;
+    		} 
+    	} 
+    	return count; 
+    }
+
+    //3.此方法是找出数组中所有重复的数字。
     public  boolean duplicateAll(int numbers[],int length,List<Integer> list) {
         if(numbers==null || numbers.length==0){
             return false;
@@ -62,7 +139,7 @@ public class Soluction {
         return false;
     }
     
-    //3.此方法是不修改数组，找出重复的数字
+    //4.此方法是不修改数组，找出重复的数字
     public List<Integer> duplicateNotModify(int numbers[],int length,List<Integer> list) {
     	int[] nums = new int[numbers.length];//辅助数组
     	for(int i=0;i<numbers.length;i++){
