@@ -9,7 +9,10 @@ package test17;
  * 
  *
  */
-public class Solution1 {
+public class Solution1_1 {
+	/*
+	 * 不要看 这个解法！！！
+	 */
 	public boolean match(char[] str, char[] pattern) {
 
 	    int m = str.length, n = pattern.length;
@@ -25,11 +28,15 @@ public class Solution1 {
 	            if (str[i - 1] == pattern[j - 1] || pattern[j - 1] == '.')
 	                dp[i][j] = dp[i - 1][j - 1];
 	            else if (pattern[j - 1] == '*')
+	            	//如果pattern[j - 1]=='*'，说明pattern[j-2]可以出现0次，1次，若干次。
+	            	//如果pattern[j-2]和str[i-1]相等，或者pattern[j-2]为任意字符'.'
 	                if (pattern[j - 2] == str[i - 1] || pattern[j - 2] == '.') {
-	                    dp[i][j] |= dp[i][j - 1]; // a* counts as single a
-	                    dp[i][j] |= dp[i - 1][j]; // a* counts as multiple a
-	                    dp[i][j] |= dp[i][j - 2]; // a* counts as empty
+	                    dp[i][j] |= dp[i][j - 1]; // a* counts as single a 当前字符匹配成功，模式上移动两个字符
+	                    dp[i][j] |= dp[i - 1][j]; // a* counts as multiple a 当前字符匹配成功，模式上保持不变
+	                    dp[i][j] |= dp[i][j - 2]; // a* counts as empty 模式上移动两个字符，相当于忽略*和它前面的字符
 	                } else
+	                // 如果pattern[j-2]和str[i-1]不相等 
+	                // 忽略'*'和它前面的字符
 	                    dp[i][j] = dp[i][j - 2];   // a* only counts as empty
 
 	    return dp[m][n];
