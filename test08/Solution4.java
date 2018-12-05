@@ -22,7 +22,7 @@ package test08;
 import java.util.Arrays;
 
 public class Solution4 {
-	public int JumpFloorII(int target) {
+/*	public int JumpFloorII(int target) {
         int[] dp = new int[target];
 	    Arrays.fill(dp, 1);
 	    for (int i = 1; i < target; i++){
@@ -31,5 +31,23 @@ public class Solution4 {
             }
         }
 	    return dp[target - 1];
-	}
+	}*/
+	/*
+	 * 由于青蛙可以调到任意位置，故每个台阶都存在可能,就可以把n个台阶当做n块木板,最后一块木板是青蛙到达的位子,必须存在,
+
+		其他n-1块木板可以任意选择是否存在,则每个木板有存在和不存在两种选择,n-1块木板就有
+		
+		2^(n-1)种。
+	 */
+	public int JumpFloorII(int target) {
+			return 1 << --target;//2^(number-1)用位移操作进行，更快。(number-1)个2相乘，相当于1向左因为number-1
+		}
+	/*
+	 * java中有三种移位运算符：
+
+    “<<” : 左移运算符，等同于乘2的n次方
+    “>>”: 右移运算符，等同于除2的n次方
+    “>>>” 无符号右移运算符，不管移动前最高位是0还是1，右移后左侧产生的空位部分都以0来填充。与>>类似。 例： int a = 16; int b = a << 2;//左移2，等同于16 * 2的2次方，也就是16 * 4 int c = a >> 2;//右移2，等同于16 / 2的2次方，也就是16 / 4
+	*/
+	 
 }
