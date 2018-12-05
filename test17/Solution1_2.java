@@ -5,7 +5,7 @@ package test17;
  * @author 54060
  *
  */
-public class Solution2 {
+public class Solution1_2 {
     public boolean match(char[] str, char[] pattern) {
     if (str == null || pattern == null) {
         return false;
@@ -24,12 +24,16 @@ public boolean matchCore(char[] str, int strIndex, char[] pattern, int patternIn
     if (strIndex != str.length && patternIndex == pattern.length) {
         return false;
     }
+    //关键的地方在于，当前字符的下一个字符究竟是不是*？
+    //如果不是*，则只有字符串的当前字符和模式的当前字符相等，或者模式的当前字符是*，才能继续匹配。否则，当前字符不满足，已经不用比较后面的字符了。
+    
     //模式第2个是*，且字符串第1个跟模式第1个匹配,分3种匹配模式；如不匹配，模式后移2位
     if (patternIndex + 1 < pattern.length && pattern[patternIndex + 1] == '*') {
-        if ((strIndex != str.length && pattern[patternIndex] == str[strIndex]) || (pattern[patternIndex] == '.' && strIndex != str.length)) {
+        if ((strIndex != str.length && pattern[patternIndex] == str[strIndex]) 
+        		|| (pattern[patternIndex] == '.' && strIndex != str.length)) {
             return matchCore(str, strIndex, pattern, patternIndex + 2)//模式后移2，视为x*匹配0个字符
                     || matchCore(str, strIndex + 1, pattern, patternIndex + 2)//视为模式匹配1个字符
-                    || matchCore(str, strIndex + 1, pattern, patternIndex);//*匹配1个，再匹配str中的下一个
+                    || matchCore(str, strIndex + 1, pattern, patternIndex);//*匹配1个，再匹配str中的下一个，即匹配多个
         } else {
             return matchCore(str, strIndex, pattern, patternIndex + 2);
         }
