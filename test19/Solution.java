@@ -8,13 +8,12 @@ package test19;
  */
 public class Solution {
 	public void reOrderArray(int[] nums) {
-	    // 奇数个数
-	    int oddCnt = 0;
+	    int oddCnt = 0; //奇数的个数
 	    for (int val : nums)
 	        if (val % 2 == 1)
 	            oddCnt++;
 	    int[] copy = nums.clone();
-	    int i = 0, j = oddCnt;
+	    int i = 0, j = oddCnt; //有j个奇数。则偶数是从下标为j开始的。
 	    for (int num : copy) {
 	        if (num % 2 == 1)
 	            nums[i++] = num;
