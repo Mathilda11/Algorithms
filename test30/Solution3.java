@@ -16,9 +16,9 @@ public class Solution3 {
 	    ArrayList<ArrayList<Integer>> ret = new ArrayList<>();
 	    Queue<TreeNode> queue = new LinkedList<>(); //节点按先进先出排序
 	    queue.add(pRoot);
-	    boolean reverse = false; //用来控制左->右、右->左
+	    boolean reverse = false; //用来控制左->右、右->左。
 	    while (!queue.isEmpty()) {
-	        ArrayList<Integer> list = new ArrayList<>();
+	        ArrayList<Integer> list = new ArrayList<>();  //每行一个集合
 	        int cnt = queue.size();
 	        while (cnt-- > 0) {
 	            TreeNode node = queue.poll();
@@ -30,7 +30,7 @@ public class Solution3 {
 	        }
 	        if (reverse)
 	            Collections.reverse(list);
-	        reverse = !reverse;
+	        reverse = !reverse;  //每行遍历完，取反。
 	        if (list.size() != 0)
 	            ret.add(list);
 	    }
