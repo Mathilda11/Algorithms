@@ -23,11 +23,13 @@ public class Solution {
 	        return false;
 	    this.rows = rows;
 	    this.cols = cols;
-	    boolean[][] marked = new boolean[rows][cols];
+	    boolean[][] marked = new boolean[rows][cols];///访问标记矩阵
 	    //将传入的array按指定行数row,指定列数cols组装成matrix
 	    char[][] matrix = buildMatrix(array);
+	    // //以每个点为起始点进行搜索
 	    for (int i = 0; i < rows; i++)
 	        for (int j = 0; j < cols; j++)
+	        	//内循环j，外循环i。即一行遍历完之后，再遍历下一行。
 	            if (backtracking(matrix, str, marked, 0, i, j))  //只要选择其中一个入口进行存在这条路径即可。
 	                return true;
 	    return false;
@@ -39,10 +41,12 @@ public class Solution {
 	    if (r < 0 || r >= rows || c < 0 || c >= cols || matrix[r][c] != str[pathLen] || marked[r][c]) //为真 已走过 不算
 	        return false;
 	    marked[r][c] = true;
+	    //如果4个相邻的格子都没有匹配字符串中下标为pathLen+1的字符，则表明当前路径字符串中下标为pathLen的字符在矩阵中的定位不准确
+	    //需要回到前一个字符(pathLen-1)，然后重新定位
 	    for (int[] n : next)
 	        if (backtracking(matrix, str, marked, pathLen + 1, r + n[0], c + n[1]))
 	            return true;
-	    marked[r][c] = false;
+	    marked[r][c] = false;  //回溯
 	    return false;
 	}
 
