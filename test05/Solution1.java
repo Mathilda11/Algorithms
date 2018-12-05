@@ -7,7 +7,7 @@ package test05;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Solution {
+public class Solution1 {
 	// 缓存中序遍历数组每个值对应的索引
 	private Map<Integer, Integer> indexForInOrders = new HashMap<>();
 	public TreeNode reConstructBinaryTree(int[] pre, int[] in) {
