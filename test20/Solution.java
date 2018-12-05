@@ -11,12 +11,12 @@ import test04.ListNode;
 
 public class Solution {
 	public ListNode FindKthToTail(ListNode head, int k) {
-	    if (head == null)
+	    if (head == null) //输入的头节点为空
 	        return null;
 	    ListNode P1 = head; //P1先走k步
 	    while (P1 != null && k-- > 0) //先取值后运算 2 1 0
 	        P1 = P1.next;
-	    if (k > 0)
+	    if (k > 0) //节点总数小于k
 	        return null;
 	    ListNode P2 = head;
 	    //此时P1.val=4
