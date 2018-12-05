@@ -2,6 +2,7 @@ package test06;
 /**
  * 给定一个二叉树和其中的一个结点，请找出中序遍历顺序的下一个结点并且返回。
  * 注意，树中的结点不仅包含左右子结点，同时包含指向父结点的指针。
+ 
  * 1.该节点有右子树
  * 直接将其右节点进行中序遍历即可，并将一个遍历到的最右节点返回.
  * 2.该节点没有右子树
@@ -23,7 +24,7 @@ public class Solution {
 	        return node;//如果右子节点没有左子节点，那么该右子节点就是下一个节点
 	    } else {
 	        while (pNode.next != null) {
-	            TreeLinkNode parent = pNode.next;
+	            TreeLinkNode parent = pNode.next; //next指向父节点
 	            System.out.println(parent.val);
 	            if (parent.left == pNode) //该节点是父节点的左子节点，直接返回父节点
 	                return parent;
