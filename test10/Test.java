@@ -1,7 +1,7 @@
 package test10;
 /**
  * matrix = [ A B C D
- * 			  E F G H
+ *            E F G H
  *            I J K I ]
  * c = ABFJ
  * @author 54060
