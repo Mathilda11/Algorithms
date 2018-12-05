@@ -13,6 +13,12 @@ public class Test {
         boolean bool = soluction.duplicate(numbers, numbers.length, duplication);
         System.out.println(bool + " "+ duplication[0]);
         
+        int result = soluction.getDuplication(numbers);
+        System.out.println(result);
+        
+        int result2 = soluction.getDuplication2(numbers);
+        System.out.println(result2);
+        
         //找出所有的重复数字
         List<Integer> list = new ArrayList<>();
         boolean duplicateAll = soluction.duplicateAll(numbers, numbers.length, list);
