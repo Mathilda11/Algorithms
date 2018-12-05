@@ -13,13 +13,15 @@ public class Solution {
 	    Stack<Integer> stack = new Stack<>();
 	    for (int pushIndex = 0, popIndex = 0; pushIndex < n; pushIndex++) {
 	        stack.push(pushSequence[pushIndex]);
-	        //如果某一位不符合 就退出 此时stack不为空
+	        //如果某一位不符合，就退出，此时stack不为空
+	        //如果下一个弹出的数字刚好是栈顶数字，即stack.peek() == popSequence[popIndex]，那么直接弹出
+	        //否则，把压栈序列中还没有入栈的数字压入栈。
 	        while (popIndex < n && !stack.isEmpty() 
 	                && stack.peek() == popSequence[popIndex]) {
 	            stack.pop();
 	            popIndex++;
 	        }
 	    }
-	    return stack.isEmpty();
+	    return stack.isEmpty();//为空，则是。
 	}
 }
