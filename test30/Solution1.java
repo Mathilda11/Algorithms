@@ -26,6 +26,14 @@ public class Solution1 {
 	            TreeNode t = queue.poll();
 	            if (t == null)
 	                continue;
+	            //ret              queue
+	            // 8               6,10
+	            // 8,6             10,5,7
+	            // 8,6,10          5,7,9,11
+	            // 8,6,10,5        7,9,11,null,null
+	            // 8,6,10,5,7      9,11,null,null,null,null
+	            // 8,6,10,5,7,9    11,null,null,null,null,null,null
+	            // 8,6,10,5,7,9,11 null,null,null,null,null,null,null,null
 	            ret.add(t.val);
 	            queue.add(t.left);
 	            queue.add(t.right);
