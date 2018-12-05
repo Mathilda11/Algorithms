@@ -4,7 +4,9 @@ package test14;
  * @author 54060
  *
  */
+import java.lang.Throwable;
 public class Solution {
+	//时间复杂度：O(log n)
 	public double Power(double base, int exponent) {
 	    if (exponent == 0)
 	        return 1;
@@ -15,9 +17,22 @@ public class Solution {
 	        exponent = -exponent;
 	        isNegative = true;
 	    }
-	    double pow = Power(base * base, exponent / 2);
-	    if (exponent % 2 != 0)
+	    double pow = Power(base * base, exponent >> 1);
+	    if ((exponent & 1) == 1)
 	        pow = pow * base;
 	    return isNegative ? 1 / pow : pow;
 	}
+	
+    //时间复杂度：O(n)
+    //使用累乘
+    public double powerAnother(double base, int exponent) {
+        double result = 1.0;
+        for (int i = 0; i < Math.abs(exponent); i++) {
+            result *= base;
+        }
+        if (exponent >= 0)
+            return result;
+        else
+            return 1 / result;
+    }
 }
