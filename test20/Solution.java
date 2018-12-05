@@ -24,7 +24,7 @@ public class Solution {
 	        P1 = P1.next;
 	        P2 = P2.next;
 	    }
-	    return P2;
+	    return P2; //如果k=0，返回null
 	}
 	//https://www.cnblogs.com/edisonchou/p/4769164.html
 	public static ListNode FindKthToTail2(ListNode head, int k)
