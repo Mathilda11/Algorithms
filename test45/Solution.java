@@ -13,23 +13,24 @@ package test45;
  * @author 54060
  *
  */
-public class Solution {
+public class Solution1 {
 	public static int getMaxPathValue(int[][] values)
     {
-        if (values == null) return 0;
+		int rows = values.length;
+		int cols = values[0].length;
+		
+        if (values == null || rows <= 0 || cols <= 0) 
+        	return 0;
 
-        int rows = values.length;
-        if (rows <= 0) return 0;
-        int cols = values[0].length;
-        if (cols <= 0) return 0;
 
-        int[][] maxValues = new int[rows][cols];
+        int[][] maxValues = new int[rows][cols];//辅助的二维数组，缓存中间结果，maxValues[i][j]表示到达坐标(i,j)的格子时能拿到的礼物价值总和的最大值
+        
         for (int i = 0; i < rows; ++i)
         {
             for (int j = 0; j < cols; ++j)
             {
                 int fromLeft = 0; //左边
-                int fromUp = 0; //上面
+                int fromUp = 0; //上边
 
                 if (i > 0)
                     fromUp = maxValues[i - 1][j];
