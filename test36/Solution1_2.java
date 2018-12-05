@@ -23,7 +23,17 @@ public class Solution1_2 {
         }
         return (ArrayList)res;
     }
- 
+    
+    //abc ->  abc, acb 
+    //恢复成abc
+    //bac ->  bac,bca
+    //恢复成abc
+    //cba ->  cba,cab
+    //恢复成abc
+    //外部  i   j   内部 i  j
+    //    0   0      1  1   1  2
+    //    0   1      1  1   1  2 
+    //    0   2      1  1   1  2
     public void PermutationHelper(char[] cs, int i, List<String> list) {
         if (i == cs.length - 1) {
             String val = String.valueOf(cs);
@@ -33,7 +43,7 @@ public class Solution1_2 {
             for (int j = i; j < cs.length; j++) {
                 swap(cs, i, j);
                 PermutationHelper(cs, i+1, list);
-                swap(cs, i, j);
+                swap(cs, i, j); //每次从递归中出来后，将上面交换过的恢复成原来的
             }
         }
     }
