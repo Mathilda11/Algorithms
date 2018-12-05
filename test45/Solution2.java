@@ -14,8 +14,7 @@ package test45;
  *
  */
 public class Solution2 {
-	public static int getMaxPathValue(int[][] values)
-    {
+	public static int getMaxPathValue(int[][] values){
 		int rows = values.length;
 		int cols = values[0].length;
 		
