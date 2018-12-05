@@ -16,7 +16,7 @@ public class Solution2 {
 	    Queue<TreeNode> queue = new LinkedList<>();
 	    queue.add(pRoot);
 	    while (!queue.isEmpty()) {
-	        ArrayList<Integer> list = new ArrayList<>();
+	        ArrayList<Integer> list = new ArrayList<>(); //每行一个集合，如何保证？cnt保证有queue中的cnt个节点共用一个集合
 	        int cnt = queue.size();
 	        while (cnt-- > 0) {
 	            TreeNode node = queue.poll();
