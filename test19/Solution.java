@@ -10,16 +10,21 @@ public class Solution {
 	public void reOrderArray(int[] nums) {
 	    int oddCnt = 0; //奇数的个数
 	    for (int val : nums)
-	        if (val % 2 == 1)
+	        if (isOdd(val))
 	            oddCnt++;
 	    int[] copy = nums.clone();
 	    int i = 0, j = oddCnt; //有j个奇数。则偶数是从下标为j开始的。
 	    for (int num : copy) {
-	        if (num % 2 == 1)
+	        if (isOdd(num))
 	            nums[i++] = num;
 	        else
 	            nums[j++] = num;
 	    }
+	    
 	}
-
+	
+	//定义函数来确定分组标准的目的是将解耦
+	private boolean isOdd(int num){
+		return (num & 1)==1;
+	}
 }
