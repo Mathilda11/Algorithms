@@ -45,6 +45,9 @@ public class Solution {
 	    mergeSort(nums, l, m);
 	    mergeSort(nums, m + 1, h);
 	    merge(nums, l, m, h);
+	    //mergeSort(nums,0,1) { mergeSort(0,0), mergeSort(1,1), merge(0,0,1) }
+	    //mergeSort(nums,2,3) { mergeSort(2,2), mergeSort(3,3), merge(2,2,3) }
+	    //merge(nums,0,1,3)      
 	}
 	
 	//两个子数组
@@ -53,14 +56,14 @@ public class Solution {
 	    int i = l, j = m + 1, k = l;
 	    while (i <= m || j <= h) {
 	        if (i > m)
-	            tmp[k] = nums[j++];//如果超过该子数组的范围 就计算另一个
+	            tmp[k] = nums[j++];//如果超过该子数组的范围，就算剩下的那个。
 	        else if (j > h)
 	            tmp[k] = nums[i++];
 	        else if (nums[i] < nums[j])
 	            tmp[k] = nums[i++];
 	        else {
-	            tmp[k] = nums[j++];
-	            this.cnt += m - i + 1;  // nums[i] >= nums[j]，说明 nums[i...mid] 都大于 nums[j]
+	            tmp[k] = nums[j++]; //++：移动指针
+	            this.cnt += m - i + 1;  // 归并排序后， nums[i] >= nums[j]，说明 nums[i...mid] 都大于 nums[j]
 	        }
 	        k++;
 	    }
