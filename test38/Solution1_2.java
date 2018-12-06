@@ -18,15 +18,37 @@ import java.util.PriorityQueue;
  * @author 54060
  *
  */
+/*
+ * https://blog.csdn.net/u013066244/article/details/78997869
+ * 
+ * java comparator 升序、降序
+ * 
+ * ① jdk官方默认是升序，是基于：
+ * 
+ * < return -1
+ * = return 0
+ * > return 1
+ * 
+ * 
+ * 官方的源码就是基于这个写的；可以理解为硬性规定。
+ * 也就是说，排序是由这三个参数同时决定的。
+ * 
+ * 如果要降序就必须完全相反：
+ * 
+ * < return 1
+ * = return 0
+ * > return -1
+ * 
+ */
 public class Solution1_2 {
 	public ArrayList<Integer> GetLeastNumbers_Solution(int[] nums, int k) {
-	    if (k > nums.length || k <= 0)
+	    if (k > nums.length || k <= 0) //鲁棒性
 	        return new ArrayList<>();
-	    PriorityQueue<Integer> maxHeap = new PriorityQueue<>((o1, o2) -> o2 - o1);//队列（大->小）
+	    PriorityQueue<Integer> maxHeap = new PriorityQueue<>((o1, o2) -> o2 - o1);//优先队列/堆 （大->小）
 	    for (int num : nums) {
-	        maxHeap.add(num);//加入到队列头
+	        maxHeap.add(num);//加入到堆
 	        if (maxHeap.size() > k)
-	            maxHeap.poll();//使大的出队列（删除） peek()不删除
+	            maxHeap.poll();//使大的出堆（删除）。则下面的k个元素就是小的
 	    }
 	    return new ArrayList<>(maxHeap);
 	}
