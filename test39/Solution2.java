@@ -11,7 +11,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class Solution2 {
-	private int[] cnts = new int[256]; //英文字母和数字占一个字节，一个字节8位，所以用长度256的数组存放每个字符出现的次数。
+	private int[] cnts = new int[256];  //ASCII码的字符，总共有256个字符。所以用长度256的数组存放每个字符出现的次数。
 	private Queue<Character> queue = new LinkedList<>();
 
 	public void Insert(char ch) {
