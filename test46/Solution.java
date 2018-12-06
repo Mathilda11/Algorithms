@@ -17,18 +17,18 @@ public class Solution {
 	public int longestSubStringWithoutDuplication(String str) {
 	    int curLen = 0;
 	    int maxLen = 0;
-	    int[] preIndexs = new int[26];
+	    int[] preIndexs = new int[26];  //存储每个字符上次出现在字符串中位置的下标
 	    Arrays.fill(preIndexs, -1);
 	    for (int curI = 0; curI < str.length(); curI++) {
 	        int c = str.charAt(curI) - 'a';
 	        int preI = preIndexs[c];
-	        if (preI == -1 || curI - preI > curLen) {
+	        if (preI == -1 || curI - preI > curLen) { //第curI个字符和它上次出现在字符串中的位置preI的距离 > f(i-1)
 	            curLen++;
 	        } else {
 	            maxLen = Math.max(maxLen, curLen);
-	            curLen = curI - preI;
+	            curLen = curI - preI;   //以第curI个字符为结尾的不包含重复字符的子字符串的最长长度  f(i)
 	        }
-	        preIndexs[c] = curI;
+	        preIndexs[c] = curI; //将当前字符的下标存储在preIndexs中，成为下次相同字符的preI
 	    }
 	    maxLen = Math.max(maxLen, curLen);
 	    return maxLen;
