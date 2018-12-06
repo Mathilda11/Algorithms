@@ -25,7 +25,7 @@ public class Solution {
 	        if (index < totalAmount)
 	            return getDigitAtIndex(index, place);
 	        //在下一位中查找
-	        index -= totalAmount;
+	        index -= totalAmount; //还要找剩下index-totalAmount个数字
 	        place++;
 	    }
 	}
@@ -59,7 +59,7 @@ public class Solution {
 	    int beginNumber = getBeginNumberOfPlace(place);
 	    int shiftNumber = index / place;
 	    String number = (beginNumber + shiftNumber) + ""; //对应的数值
-	    int count = index % place;
-	    return number.charAt(count) - '0'; //char转int 直接在后面减去'0'即可
+	    int count = index % place; //判断是number中的第几位，如果是0，表示第1位
+	    return number.charAt(count) - '0'; //char转int，直接在后面减去'0'即可
 	}
 }
