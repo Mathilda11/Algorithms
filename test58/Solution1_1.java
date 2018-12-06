@@ -37,7 +37,7 @@ import java.util.Map;
 
 public class Solution1_1 {
 	public List<Map.Entry<Integer, Double>> dicesSum(int n) {
-	    final int face = 6;
+	    final int face = 6; //没有把一个骰子的最大点数硬编码为6，而是用变量表示，便于扩展。
 	    final int pointNum = face * n;
 	    long[][] dp = new long[n + 1][pointNum + 1];
 
@@ -53,7 +53,7 @@ public class Solution1_1 {
 	    List<Map.Entry<Integer, Double>> ret = new ArrayList<>();
 	    for (int i = n; i <= pointNum; i++)
 	        ret.add(new AbstractMap.SimpleEntry<>(i, dp[n][i] / totalNum));
-
+	    
 	    return ret;
 	}
 }
