@@ -8,6 +8,7 @@ package test56;
  * 定义字符串的左旋转操作：把字符串前面的几个字符移动到字符串后面去，比如"ABCDEFGHI"，左旋转2位得到"CDEFGHIAB"；
  * 
  * 同样右旋转操作：把字符串后面的几个字符移动到字符串前面去，比如“ABCDEFGHI”右旋转2位得到“HIABCDEFG”。
+ * 
  * 思路：先将 "abc" 和 "XYZdef" 分别翻转，得到 "cbafedZYX"，然后再把整个字符串翻转得到 "XYZdefabc"。
  * @author 54060
  *
