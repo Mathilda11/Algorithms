@@ -21,21 +21,21 @@ public class Solution1_1 {
 	    int i = 0, j = 0;
 	    while (j <= n) {
 	        if (j == n || chars[j] == ' ') {
-	            reverse(chars, i, j - 1);
+	            reverse(chars, i, j - 1); //先旋转每个单词
 	            i = j + 1;
 	        }
 	        j++;
 	    }
 	    
 	    //[I, ,a,m, ]->[I, ,m,a, ]
-	    reverse(chars, 0, n - 1);
+	    reverse(chars, 0, n - 1); //再旋转整个字符串
 	    return new String(chars);
 	}
 
 	private void reverse(char[] c, int i, int j) {
 		//如果是单个字符不交换
 	    while (i < j)
-	        swap(c, i++, j--);  //是先按角标i,j比较一次后再++，--
+	        swap(c, i++, j--);  //是先按下标i,j比较一次后再++，--
 	}
 
 	private void swap(char[] c, int i, int j) {
