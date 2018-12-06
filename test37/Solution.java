@@ -6,6 +6,7 @@ package test37;
  * 如果前面查找了 i 个元素，且 cnt == 0，说明前 i 个元素没有 majority，或者有 majority，但是出现的次数少于 i / 2 ，
  * 因为如果多于 i / 2 的话 cnt 就一定不会为 0 。此时剩下的 n - i 个元素中，majority 的数目依然多于 (n - i) / 2，
  * 因此继续查找就能找出 majority。
+ * 时间复杂度：O(n)
  * @author 54060
  *
  */
