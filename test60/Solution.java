@@ -11,6 +11,8 @@ package test60;
  * f(n, m) = 0           (n = 1)
  * f(n, m) = [f(n-1, m) +m] % n  (n > 1)
  * https://blog.csdn.net/fuxuemingzhu/article/details/79702974
+ * 
+ * 时间复杂度：O(n)，空间复杂度O(1)
  * @author 54060
  *
  */
