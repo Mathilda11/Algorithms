@@ -15,7 +15,7 @@ package test65;
  */
 public class Solution {
 	public int StrToInt(String str) {
-	    if (str == null || str.length() == 0)
+	    if (str == null || str.length() == 0) /* 非法输入 */
 	        return 0;
 	    boolean isNegative = str.charAt(0) == '-';
 	    int ret = 0;
@@ -25,7 +25,7 @@ public class Solution {
 	            continue;
 	        if (c < '0' || c > '9')                /* 非法输入 */
 	            return 0;
-	        ret = ret * 10 + (c - '0'); /*减去字符0，也就是减去0的ASCII码值48，数字字符减去‘0’就得到了该数字。*/
+	        ret = ret * 10 + (c - '0'); /*减去字符0，也就是减去0的ASCII码值48，数字字符减去'0'就得到了该数字。*/
 	    }
 	    return isNegative ? -ret : ret;
 	}
