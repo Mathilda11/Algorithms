@@ -19,9 +19,9 @@ package test54;
  * @author 54060
  *
  */
-public class Solution {
-	////num1,num2分别为长度为1的数组。传出参数
-	//将num1[0],num2[0]设置为返回结果
+public class Solution1 {
+    //num1,num2分别为长度为1的数组。传出参数
+    //将num1[0],num2[0]设置为返回结果
     public void FindNumsAppearOnce(int [] array,int num1[] , int num2[]) {
         if(array.length==2){
         	num1[0] = array[0];
@@ -43,15 +43,17 @@ public class Solution {
         System.out.println(num1[0]);
         System.out.println(num2[0]);
     }
-
+    
+      //找出target从右边起第index位是不是1
 	private boolean isBit1(int target, int index) {
 		return ((target >> index) & 1) == 1 ? true:false;
 	}
-
+	
+	//找出bitResult最右边是1的位
 	private int findFirst1(int bitResult) {
 		int index = 0;
 		while(((bitResult & 1)) ==0 && index<32){ //int类型4个字节 占32位
-			bitResult >>= 1;
+			bitResult >>= 1; //右移一位
 			index++;
 		}
 		return index;
