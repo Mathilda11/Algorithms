@@ -26,7 +26,8 @@ public class Solution {
 	    for (int i = cnt; i < nums.length - 1; i++){
 	        if (nums[i + 1] == nums[i]) //如果从非癞子牌开始算，有相同的非癞子牌，则肯定不能组成顺子
 	            return false;
-	        cnt -= nums[i + 1] - nums[i] - 1;
+	        cnt -= nums[i + 1] - nums[i] - 1; //如果nums[i+1]-nums[i]-1=0，说明这两个可以组成顺子，不用使用癞子，cnt的数量不变。
+	                                          //否则，需要nums[i+1]-nums[i]-1个癞子去组成顺子
 	    }
 
 	    return cnt >= 0;
