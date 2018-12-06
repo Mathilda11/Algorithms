@@ -12,6 +12,7 @@ import java.util.Arrays;
  * 如果 sum > target，移动较大的元素，使 sum 变小一些；
  * 如果 sum < target，移动较小的元素，使 sum 变大一些。
  * 
+ * 时间复杂度：O(n)
  * @author 54060
  *
  */
