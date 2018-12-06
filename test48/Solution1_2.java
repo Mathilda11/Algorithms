@@ -2,7 +2,9 @@ package test48;
 /**
  * 在一个字符串中找到第一个只出现一次的字符，并返回它的位置。
  * 解题思路： 
- * Solution1_1实现的空间复杂度还不是最优的。考虑到只需要找到只出现一次的字符，那么需要统计的次数信息只有 0,1,更大，使用两个比特位就能存储这些信息。
+ * Solution1_1实现的空间复杂度还不是最优的，每个int型数字占4个字节，32比特位。
+ * 考虑到只需要找到只出现一次的字符，那么需要统计的次数信息只有0,1。可以使用两个比特位就能存储这些信息。
+ * Bitset的基本原理是，用1位来表示一个数据是否出现过，0为没有出现过，1表示出现过。使用的时候可以根据某一个位是否为0表示此数是否出现过。
  * @author 54060
  *
  */
@@ -10,7 +12,6 @@ import java.util.BitSet;
 
 public class Solution1_2 {
 	public int FirstNotRepeatingChar2(String str) {
-		//Bitset的基本原理是，用1位来表示一个数据是否出现过，0为没有出现过，1表示出现过。使用的时候可以根据某一个位是否为0表示此数是否出现过。
 	    BitSet bs1 = new BitSet(256);
 	    BitSet bs2 = new BitSet(256);
 	    for (char c : str.toCharArray()) {
