@@ -12,6 +12,7 @@ import java.util.PriorityQueue;
 //comparator:相当于从小到大排序 大的返回正值，往后放 return obj1.value()-obj2.value(); 
 //相当于从大到小排序，大值返回负值，往前放 return -(obj1.value()-obj2.value());
 
+//重点：要保证数据平均分配到两个堆中，因此两个堆中的数据数目之差不能超过1.为了实现平均分配，可以在数据的总数目是偶数时把新数据插入到最小堆，否则插入到最大堆。
 public class Solution1 {
 	/* 大顶堆，存储左半边元素 */
 	private PriorityQueue<Integer> left = new PriorityQueue<>((o1, o2) -> o2 - o1);
@@ -27,19 +28,19 @@ public class Solution1 {
 	        /* N 为偶数的情况下插入到右半边。
 	         * 因为右半边元素都要大于左半边，但是新插入的元素不一定比左半边元素来的大，
 	         * 因此需要先将元素插入左半边，然后利用左半边为大顶堆的特点，取出堆顶元素即为最大元素，此时插入右半边 */
-	        left.add(val);  //新加入的元素先入到大根堆，由大根堆筛选出堆中最大的元素
+	        left.add(val);  //新加入的元素先入到大顶堆，由大顶堆筛选出堆中最大的元素
 	        right.add(left.poll());//获取和删除队列的第一个元素
 	    } else {
-	        right.add(val);//筛选后的小根堆中的最小元素进入大根堆
+	        right.add(val);//筛选后的小顶堆中的最小元素进入大顶堆
 	        left.add(right.poll());
 	    }
 	    N++;
 	}
 
 	public Double GetMedian() {
-	    if (N % 2 == 0)
-	        return (left.peek() + right.peek()) / 2.0;  //peek()方法只检索的元件在头部但poll() 也与检索移除element
-	    else
+	    if (N % 2 == 0)//偶数个
+	        return (left.peek() + right.peek()) / 2.0;  //peek()方法只检索头部元素，但poll()会移除
+	    else//奇数个
 	        return (double) right.peek();
 	}
 }
