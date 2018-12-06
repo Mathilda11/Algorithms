@@ -12,7 +12,7 @@ package test48;
 import java.util.ArrayList;
 import java.util.List;
 public class Solution2 {
-   		int []countArr = new int[256];
+        int []countArr = new int[256];
         List<Character> charList = new ArrayList<Character>();
  
         //Insert one char from stringstream
