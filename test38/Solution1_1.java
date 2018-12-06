@@ -17,7 +17,7 @@ public class Solution1_1 {
 	    ArrayList<Integer> ret = new ArrayList<>();
 	    if (k > nums.length || k <= 0)
 	        return ret;
-	    findKthSmallest(nums, k - 1);
+	    findKthSmallest(nums, k - 1);//输出下标为0，1，...，k-1的元素
 	    /* findKthSmallest 会改变数组，使得前 k 个数都是最小的 k 个数 */
 	    for (int i = 0; i < k; i++)
 	        ret.add(nums[i]);
@@ -31,9 +31,9 @@ public class Solution1_1 {
 	        if (j == k)
 	            break;
 	        if (j > k)
-	            h = j - 1;
+	            h = j - 1;//待确认范围：0~j-1
 	        else
-	            l = j + 1;
+	            l = j + 1;//待确认范围：j+1~h
 	    }
 	}
 
@@ -41,13 +41,13 @@ public class Solution1_1 {
 	    int p = nums[l];     /* 切分元素 */
 	    int i = l, j = h + 1;
 	    while (true) {
-	        while (i != h && nums[++i] < p) ;
-	        while (j != l && nums[--j] > p) ;
+	        while (i != h && nums[++i] < p) ;//当判断为假时才退出，即从左向右找到第一个比p大的元素，i。
+	        while (j != l && nums[--j] > p) ;//从右向左找到第一个比p小的元素，j。
 	        if (i >= j)
-	            break;
-	        swap(nums, i, j);
+	            break;//左指针大于右指针，说明遍历完了，退出循环 
+	        swap(nums, i, j);//否则，交换这两个元素
 	    }
-	    swap(nums, l, j);
+	    swap(nums, l, j);//遍历完之后，交换p和比它小的元素
 	    return j;
 	}
 
