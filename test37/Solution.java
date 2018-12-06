@@ -23,6 +23,6 @@ public class Solution {
 	    for (int val : nums)
 	        if (val == majority)
 	            cnt++;
-	    return cnt > nums.length / 2 ? majority : 0;
+	    return cnt > nums.length / 2 ? majority : 0;//判断找到的数字出现的次数是否超过数组长度的一半，如果是，返回该数字，如果不是，返回0。
 	}
 }
