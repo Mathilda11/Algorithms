@@ -13,7 +13,7 @@ package test45;
  * @author 54060
  *
  */
-public class Solution1 {
+public class Solution1_1 {
 	public static int getMaxPathValue(int[][] values){
 		int rows = values.length;
 		int cols = values[0].length;
