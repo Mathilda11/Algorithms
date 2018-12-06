@@ -25,7 +25,7 @@ public class Solution {
 	    int l = 0, h = nums.length;
 	    while (l < h) {
 	        int m = l + (h - l) / 2;
-	        if (nums[m] >= K)
+	        if (nums[m] >= K) //注意：>=，为了找到第一个k
 	            h = m;
 	        else
 	            l = m + 1;
