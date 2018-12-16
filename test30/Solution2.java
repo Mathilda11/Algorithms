@@ -26,8 +26,18 @@ public class Solution2 {
 	            queue.add(node.left);
 	            queue.add(node.right);
 	        }
-	        if (list.size() != 0)
+	        if (list.size() != 0){
 	            ret.add(list);
+	            //如果要求：
+	            //1 
+	            //2 3
+	            //4 5 7
+	            for (int i : list) {
+			System.out.print(i+" "); //一行中，各元素，空一格
+		    }
+	            System.out.println(); //换行
+	        }
+	          
 	    }
 	    return ret;
 	}
