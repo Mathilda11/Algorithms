@@ -7,3 +7,5 @@
 <img src="https://assets-cdn.github.com/images/icons/emoji/unicode/2728.png" width="20" height="20">unionfind：[并查集](https://github.com/Mathilda11/Algorithms/tree/master/unionfind)
 
 :umbrella:tencent：[腾讯笔试](https://github.com/Mathilda11/Algorithms/tree/master/tencent)
+
+🍵[树的广度优先遍历和深度优先遍历](https://github.com/Mathilda11/Algorithms/tree/master/tree)
