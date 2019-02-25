@@ -2,7 +2,7 @@
 
 <img src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f50d.png" width="20" height="20"> test01-test66：《剑指offer》刷题笔记
 
-💫[LeeCode刷题笔记](https://github.com/Mathilda11/Algorithms/tree/master/leetCode)
+💫leecode：[LeeCode刷题笔记](https://github.com/Mathilda11/Algorithms/tree/master/leetCode)
 
 <img src="https://assets-cdn.github.com/images/icons/emoji/unicode/2618.png" width="20" height="20"> sort，sort-improved：[八大排序算法实现](https://github.com/Mathilda11/Algorithms/tree/master/sort)
 
