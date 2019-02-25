@@ -8,4 +8,4 @@
 
 :umbrella:tencent：[腾讯笔试](https://github.com/Mathilda11/Algorithms/tree/master/tencent)
 
-🍵[树的广度优先遍历和深度优先遍历](https://github.com/Mathilda11/Algorithms/tree/master/tree)
+🍵tree：[树的广度优先遍历和深度优先遍历](https://github.com/Mathilda11/Algorithms/tree/master/tree)
