@@ -1,5 +1,8 @@
 package leetCode;
-
+/*
+ * 给定一个字符串s，将s分割成一些子串，使每个子串都是回文串。
+ * 返回s所有可能的回文串分割方案。
+ */
 import java.util.ArrayList;
 import java.util.List;
 
