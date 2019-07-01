@@ -1,5 +1,7 @@
 package leetCode;
-
+/*
+ * 给定一个正确的表达式（不用担心不规范的输入），比如2-1-1，通过在不同位置添加左右括号，改变求值的优先级顺序，求出所有的这些值。
+ */
 import java.util.ArrayList;
 import java.util.List;
 
