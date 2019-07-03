@@ -1,4 +1,7 @@
 package leetCode;
+/*
+ * 给出一些字符串，找出两个不同的字符串之间长度之积的最大值，但要求这两个字符串之间不能拥有相同的字符。（字符只考虑小写字母）。
+ */
 
 public class leeCode_318 {
 	public int maxProduct(String[] words) {
